@@ -1,20 +1,19 @@
 import React from 'react'
 import Template from '../felaTemplate'
 import productData from '../../data/productData'
+import StickyColumns from '../../components/StickyColumns'
+import ProductDetailsText from './ProductDetailsText'
+import ImageCarousel from '../../components/ImageCarousel'
 
-const ProductDetails = () => (
+const ProductDetailsPage = () => {
+    return (
     <Template>
-        <div>TODO: Product Details area</div>
-        <div>{productData.brand}</div>
-        <div>{productData.name}</div>
-        <div>{productData.description}</div>
-        <div>{productData.currency} {productData.price}</div>
-        <div>{productData.details}</div>
-        <div>TODO: Size dropdown </div>
-        <div>TODO: color selection </div>
-        <div>TODO: Image carousel/Sticky image gallery</div>
-        <img src={productData.images[0]}/>
+        <StickyColumns>
+            <ProductDetailsText productData={productData}/>
+            <ImageCarousel images={productData.images}/>
+        </StickyColumns>
     </Template>
-)
+    )
+}
 
-export default ProductDetails
+export default ProductDetailsPage
