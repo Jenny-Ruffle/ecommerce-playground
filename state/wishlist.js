@@ -14,7 +14,6 @@ export class WishlistAPI {
     this.setWishlist(updatedProducts)
     }
     
-
     getProductIndex(product) {
         if (this.wishlist.some(e => e.key === product)) {
             const inWishlist = true

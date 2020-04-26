@@ -22,30 +22,54 @@ const headingMedium = () => ({
 
 export const HeadingMedium = createComponent(headingMedium, 'h2')
 
-const paragraphLarge = () => ({
+const headingSmall = ({hover = false}) => ({
     display: 'block',
     textAlign: 'center',
     margin: 0,
     color: 'black',
     paddingBottom: '16px',
-    font: '14px/18px Overpass-Light, sans-serif'
+    font: '16px/20px PlayfairDisplay, sans-serif',
+    ':hover': {
+        color: hover ? 'gray' : 'black',
+        cursor: hover ? 'pointer' : 'default'
+    }
+})
+
+export const HeadingSmall = createComponent(headingSmall, 'h3')
+
+
+const paragraphLarge = ({hover = false}) => ({
+    display: 'block',
+    textAlign: 'center',
+    margin: 0,
+    color: 'black',
+    paddingBottom: '16px',
+    font: '14px/18px Overpass-Light, sans-serif',
+    ':hover': {
+        color: hover ? 'gray' : 'black',
+        cursor: hover ? 'pointer' : 'default'
+    }
 })
 
 export const ParagraphLarge = createComponent(paragraphLarge, 'p')
 
-const paragraph = () => ({
+const paragraph = ({hover = false}) => ({
     display: 'block',
     textAlign: 'center',
     margin: 0,
     color: 'black',
     paddingBottom: '16px',
-    font: '12px/16px Overpass-Light, sans-serif'
+    font: '12px/16px Overpass-Light, sans-serif',
+    ':hover': {
+        color: hover ? 'gray' : 'black',
+        cursor: hover ? 'pointer' : 'default'
+    }
 })
 
 export const Paragraph = createComponent(paragraph, 'p')
 
 
-const prefix = () => ({
+const prefix = ({hover = false}) => ({
     display: 'block',
     textAlign: 'center',
     margin: 0,
@@ -53,7 +77,11 @@ const prefix = () => ({
     paddingBottom: '4px',
     textTransform: 'uppercase',
     letterSpacing: '2px',
-    font: '10px/14px Overpass-Light, sans-serif'
+    font: '10px/14px Overpass-Light, sans-serif',
+    ':hover': {
+        color: hover ? 'gray' : 'black',
+        cursor: hover ? 'pointer' : 'default'
+    }
 })
 
 export const Prefix = createComponent(prefix, 'p')
