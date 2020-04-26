@@ -8,11 +8,8 @@ import VerticalCenterContainer from '../../components/VerticalCenterContainer'
 import SizeSelectionArea from '../../components/SizeSelectionArea'
 import { Heart, FilledHeart } from '../../svg/wishlistSvgs'
 //TODO: Notification pop up
-//TODO: Wishlist Icon/SVG
 //TODO: Shopping Bag
 //TODO: Chevron Arrow
-//TODO: Homepage
-//TODO: Listing Page
 
 const addToBag =() => {
     console.log('Successfully added to bag', )
