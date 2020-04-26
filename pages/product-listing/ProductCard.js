@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { createComponent } from 'react-fela'
 import { WishlistContext } from '../../state/wishlist'
-import CenterContainer from '../../components/CenterContainer'
 import Image from '../../components/Image'
 import {HeadingSmall, ParagraphLarge, Prefix} from '../../components/Fonts'
 import { Heart, FilledHeart } from '../../svg/wishlistSvgs'

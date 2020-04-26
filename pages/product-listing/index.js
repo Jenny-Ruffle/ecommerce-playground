@@ -2,7 +2,6 @@ import React from 'react'
 import { createComponent } from 'react-fela'
 import Template from '../felaTemplate'
 import productListingData from '../../data/productListingData'
-import CenterContainer from '../../components/CenterContainer'
 import ProductCard from './ProductCard'
 
 const flexContainer = () => ({
