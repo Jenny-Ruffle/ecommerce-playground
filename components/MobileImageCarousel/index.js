@@ -1,19 +1,24 @@
 import { createComponent } from 'react-fela'
 
 const slideContainer = () => ({
-    scrollSnapType: 'y proximity',
+    scrollSnapType: 'x mandatory',
     position: 'relative',
-    overflow: 'scroll',
-    height: '100vh'
+    overflowX: 'auto',
+    flexWrap: 'nowrap',
+    display: 'flex',
+    WebkitOverflowScrolling: 'touch',
+    '::-webkit-scrollbar': { display: 'none' },
+
 })
   
 const SlideContainer = createComponent(slideContainer, 'div')
   
 const imageSlide = () => ({
-    width: '100%',
-    height: '100vh',
-    padding: '0 ',
-    scrollSnapAlign: 'start'
+    width: '50vw',
+    padding: '0',
+    scrollSnapAlign: 'start',
+    flex: '0 0 auto'
+
 })
 const ImageSlide = createComponent(imageSlide, 'div')
   
@@ -25,7 +30,8 @@ const image = () => ({
 const Image = createComponent(image, 'img', ['src'])
   
 
-const ImageCarousel = ({images}) => {
+const MobileImageCarousel = ({images}) => {
+    const arraySize = images.length
     return(
         <SlideContainer>
             {images.map((item, index)=>(<ImageSlide><Image key={index} src={item.src}/></ImageSlide>))}
@@ -33,4 +39,4 @@ const ImageCarousel = ({images}) => {
     )
 }
 
-export default ImageCarousel
+export default MobileImageCarousel
