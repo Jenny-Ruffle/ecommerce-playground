@@ -22,17 +22,21 @@ renderer.renderFont('PlayfairDisplay', PlayfairDisplayFile)
 renderer.renderFont('PlayfairDisplay-Italic', PlayfairDisplayItalicFile, { fontStyle: 'italic' })
 renderer.renderFont('PlayfairDisplay-Bold', PlayfairDisplayBoldFile, { fontWeight: 'bold'})
 
+const styleObject = {
+  margin: 0
+}
+
+renderer.renderStatic(styleObject, 'body')
+
 const Template = ({ children }) => (
   <FelaProvider renderer={renderer}>
     <BasketContextProvider >
       <WishlistContextProvider >
-        <div>
           <Head>
               Ecommerce Playground
           </Head>
           <Navigation/>
           {children}
-        </div>
       </WishlistContextProvider>
     </BasketContextProvider>
   </FelaProvider>

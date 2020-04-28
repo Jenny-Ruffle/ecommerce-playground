@@ -6,14 +6,9 @@ import Button from '../../components/Button'
 import CenterContainer from '../../components/CenterContainer'
 import VerticalCenterContainer from '../../components/VerticalCenterContainer'
 import SizeSelectionArea from '../../components/SizeSelectionArea'
-import { Heart, FilledHeart } from '../../svg/wishlistSvgs'
+import { Heart, OutlinedHeart } from '../../svg/wishlistSvgs'
 //TODO: Notification pop up
-//TODO: Shopping Bag
 //TODO: Chevron Arrow
-
-const addToBag =() => {
-    console.log('Successfully added to bag', )
-}
 
 const ProductDetailsText = ({ productData }) => {
 const WishlistAPI = useContext(WishlistContext)
@@ -31,14 +26,14 @@ useEffect(()=>{
 return(
 <VerticalCenterContainer>
     <CenterContainer>
-        {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(productData.id)} /> : <FilledHeart onClick={()=>WishlistAPI.toggleProduct(productData.id)}/>}
+        {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(productData.id)} /> : <OutlinedHeart onClick={()=>WishlistAPI.toggleProduct(productData.id)}/>}
     </CenterContainer>
     <Prefix>{productData.brand}</Prefix>
     <HeadingMedium>{productData.name}</HeadingMedium>
     <ParagraphLarge>{productData.description}</ParagraphLarge>
     <HeadingMedium>{productData.price}</HeadingMedium>
     <CenterContainer><SizeSelectionArea currentSize={size} setSize={setSize} availableSizes={productData.availableSizes}/></CenterContainer>
-    <CenterContainer><Button disabled={addToBagDisabled} onClick={() => BasketAPI.toggleProduct(productData.id)} buttonText='Add to Bag'/></CenterContainer>
+    <CenterContainer><Button disabled={addToBagDisabled} onClick={() => BasketAPI.addProduct(productData.id)} buttonText='Add to Bag'/></CenterContainer>
 </VerticalCenterContainer>
 )}
 

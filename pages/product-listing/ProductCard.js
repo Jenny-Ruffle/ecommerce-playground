@@ -3,7 +3,7 @@ import { createComponent } from 'react-fela'
 import { WishlistContext } from '../../state/wishlist'
 import Image from '../../components/Image'
 import {HeadingSmall, ParagraphLarge, Prefix} from '../../components/Fonts'
-import { Heart, FilledHeart } from '../../svg/wishlistSvgs'
+import { Heart, OutlinedHeart } from '../../svg/wishlistSvgs'
 
 const cardContainer = () => ({
     width: '200px',
@@ -57,7 +57,7 @@ const ProductCard = ({data}) => {
         <ParagraphLarge >{data.price}</ParagraphLarge>
         </a>
         <SvgContainer>
-            {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(data.id)} /> : <FilledHeart onClick={()=>WishlistAPI.toggleProduct(data.id)}/>}
+            {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(data.id)} /> : <OutlinedHeart onClick={()=>WishlistAPI.toggleProduct(data.id)}/>}
         </SvgContainer>
     </CardContainer>
 }

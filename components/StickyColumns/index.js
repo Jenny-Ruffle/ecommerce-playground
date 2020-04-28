@@ -17,6 +17,6 @@ const columnsWrapper = () => ({
 
 const ColumnsWrapper = createComponent(columnsWrapper, 'div')
 
-const StickyColumns = ({children}) => <ColumnsWrapper>{children.map((item)=> <Column>{item}</Column>)}</ColumnsWrapper>
+const StickyColumns = ({children}) => <ColumnsWrapper>{children.map((item, index)=> <Column key={index + 1}>{item}</Column>)}</ColumnsWrapper>
 
 export default StickyColumns
