@@ -95,7 +95,7 @@ const Navigation = () => {
     const toggleMenu = () => {menuOpen ? setMenuOpen(false): setMenuOpen(true)}
     return (<>
         <NavBar>
-            <NavItem><HomeLink href="/">BRAND NAME</HomeLink></NavItem>
+            <NavItem><HomeLink href="/product-listing">BRAND NAME</HomeLink></NavItem>
             {!mobileView && <><NavItem><NavLink href="/product-listing">Product Listing</NavLink></NavItem>
             <NavItem><NavLink customPadding='0 60px 0 16px' customPaddingMobile='0 40px 0 16px' href="/product-details">Product Details</NavLink></NavItem>
             <NavItem><SvgContainer><OutlinedHeart href="/wishlist"/></SvgContainer></NavItem>

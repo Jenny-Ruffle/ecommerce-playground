@@ -28,7 +28,7 @@ const Image = createComponent(image, 'img', ['src'])
 const ImageCarousel = ({images}) => {
     return(
         <SlideContainer>
-            {images.map((item, index)=>(<ImageSlide><Image key={index} src={item.src}/></ImageSlide>))}
+            {images.map((item, index)=>(<ImageSlide key={index}><Image src={item.src}/></ImageSlide>))}
         </SlideContainer>
     )
 }

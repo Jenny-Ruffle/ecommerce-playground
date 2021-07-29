@@ -1,22 +1,22 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
 const removeProduct = (array, value) => array.filter(({ key }) => key !== value)
 
 export class BasketAPI {
     constructor() {
-      const [basket, setBasket] = useState([])
-      this.setBasket = setBasket
-      this.basket = basket
-    }
+        const [basket, setBasket] = useState([])
+        this.setBasket = setBasket
+        this.basket = basket
+    };
   
     addProduct(product) {
-        const updatedProducts = [...this.basket, { key: product }]
-        this.setBasket( updatedProducts )
-    }
-    removeProduct(product) {
-        const updatedProducts = removeProduct(this.basket, product) 
-        this.setBasket( updatedProducts )
-    }
+        const updatedProducts = [...basket, { key: product }]
+        setBasket( updatedProducts )
+    };
+    deleteProduct(product) {
+        const updatedProducts = removeProduct(basket, product) 
+        setBasket( updatedProducts )
+    };
 }
 
 export const BasketContext = React.createContext(null)

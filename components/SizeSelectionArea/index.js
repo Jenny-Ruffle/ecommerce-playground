@@ -68,7 +68,7 @@ const SizeButton = ({ currentSize, setSize, index, size, inStock = true }) => {
 
 const SizeSelectionArea = ({ currentSize, setSize, availableSizes }) => {
     return <Container>
-        {availableSizes.map((item, index)=>(<SizeButton currentSize={currentSize} setSize={setSize} index={index} size={item.size} inStock={item.inStock}/>))}
+        {availableSizes.map((item, index)=>(<SizeButton currentSize={currentSize} setSize={setSize} index={index} size={item.size} inStock={item.inStock} key={index}/>))}
     </Container>
 }
 

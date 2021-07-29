@@ -14,16 +14,20 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "fela-dom": "^10.2.4",
+    "fela-dom": "^11.6.0",
     "fela-preset-web": "^10.2.4",
     "lodash": "^4.17.15",
-    "next": "9.3.2",
+    "next": "^9.3.2",
     "next-images": "^1.3.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-fela": "^11.1.2"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^25.4.0"
   }
 }
