@@ -10,8 +10,8 @@ export class WishlistAPI {
     }
 
     toggleProduct(product) {
-    const updatedProducts = this.wishlist.find((item) => item.key === product) ? removeProduct(this.wishlist, product) : [...this.wishlist, { key: product }]
-    this.setWishlist(updatedProducts)
+        const updatedProducts = this.wishlist.find((item) => item.key === product) ? removeProduct(this.wishlist, product) : [...this.wishlist, { key: product }]
+        this.setWishlist(updatedProducts)
     }
     
     getProductIndex(product) {
