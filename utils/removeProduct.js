@@ -1,0 +1,1 @@
+export const removeProduct = (array, value) => array.filter(({ key }) => key !== value);
