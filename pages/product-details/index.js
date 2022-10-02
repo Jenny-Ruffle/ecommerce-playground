@@ -1,6 +1,6 @@
 import React from 'react'
 import Template from '../felaTemplate'
-import productData from '../../data/productData'
+import {productOne} from '../../data/productData'
 import useMobileView from '../../utils/useMobileView'
 import StickyColumns from '../../components/StickyColumns'
 import ProductDetailsText from './ProductDetailsText'
@@ -12,10 +12,10 @@ const ProductDetailsPage = () => {
     return (
     <Template>
         {!mobileView && <StickyColumns>
-            <ProductDetailsText productData={productData}/>
-            <ImageCarousel images={productData.images}/>
+            <ProductDetailsText productData={productOne}/>
+            <ImageCarousel images={productOne.images}/>
         </StickyColumns>}
-        {mobileView && <div><MobileImageCarousel images={productData.images}/><ProductDetailsText productData={productData}/></div>}
+        {mobileView && <div><MobileImageCarousel images={productOne.images}/><ProductDetailsText productData={productOne}/></div>}
     </Template>
     )
 }

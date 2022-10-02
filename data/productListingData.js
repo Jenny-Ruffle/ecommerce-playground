@@ -1,28 +1,4 @@
-import productData from './productData'
-import productTwoData from './productTwoData'
-import productThreeData from './productThreeData'
+import {productOne, productTwo, productThree, productFour, productFive, productSix, productSeven, productEight, productNine} from './productData'
 
-const productListingData = [
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData,
-    productData,
-    productTwoData,
-    productThreeData
-]
+const productListingData = [productOne, productTwo, productThree, productFour, productFive, productSix, productSeven, productEight, productNine]
 export default productListingData

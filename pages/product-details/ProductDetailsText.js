@@ -11,29 +11,33 @@ import { Heart, OutlinedHeart } from '../../svg/wishlistSvgs'
 //TODO: Chevron Arrow
 
 const ProductDetailsText = ({ productData }) => {
-const WishlistAPI = useContext(WishlistContext)
-const BasketAPI = useContext(BasketContext)
+const { onWishlist, toggleProduct } = useContext(WishlistContext)
+const { addProduct, } = useContext(BasketContext)
 
 const [size, setSize] = useState({key: undefined, size: undefined})
 const [addToBagDisabled, setAddToBagDisabled] = useState(true)
-const [onWishlist, setOnWishlist] = useState(WishlistAPI.getProductIndex(productData.id))
 
 useEffect(()=>{
     setAddToBagDisabled(size.key === undefined)
-    setOnWishlist(WishlistAPI.getProductIndex(productData.id))
-}, [size, WishlistAPI])
+}, [size])
 
 return(
 <VerticalCenterContainer>
     <CenterContainer>
-        {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(productData.id)} /> : <OutlinedHeart onClick={()=>WishlistAPI.toggleProduct(productData.id)}/>}
+        {onWishlist(productData.id) ? 
+        <Heart onClick={()=>toggleProduct(productData.id)} /> : 
+        <OutlinedHeart onClick={()=>toggleProduct(productData.id)}/>}
     </CenterContainer>
     <Prefix>{productData.brand}</Prefix>
     <HeadingMedium>{productData.name}</HeadingMedium>
     <ParagraphLarge>{productData.description}</ParagraphLarge>
     <HeadingMedium>{productData.price}</HeadingMedium>
-    <CenterContainer><SizeSelectionArea currentSize={size} setSize={setSize} availableSizes={productData.availableSizes}/></CenterContainer>
-    <CenterContainer><Button disabled={addToBagDisabled} onClick={() => BasketAPI.addProduct(productData.id)} buttonText='Add to Bag'/></CenterContainer>
+    <CenterContainer>
+        <SizeSelectionArea currentSize={size} setSize={setSize} availableSizes={productData.availableSizes}/>
+    </CenterContainer>
+    <CenterContainer>
+        <Button disabled={addToBagDisabled} onClick={() => addProduct(productData.id)} buttonText='Add to Bag'/>
+    </CenterContainer>
 </VerticalCenterContainer>
 )}
 

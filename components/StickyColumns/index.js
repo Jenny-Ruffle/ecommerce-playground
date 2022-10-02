@@ -12,7 +12,7 @@ const Column = createComponent(column, 'div')
 
 const columnsWrapper = () => ({
     display:'flex',
-    position: 'relative'
+    position: 'relative',
 })
 
 const ColumnsWrapper = createComponent(columnsWrapper, 'div')
