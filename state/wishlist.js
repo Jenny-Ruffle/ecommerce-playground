@@ -1,31 +1,20 @@
 import React, { useState } from 'react'
+import { removeProduct } from '../utils/removeProduct'
 
-const removeProduct = (array, value) => array.filter(({ key }) => key !== value)
+export const WishlistContext = React.createContext(null)
 
-export class WishlistAPI {
-    constructor() {
-      const [wishlist, setWishlist] = useState([])
-      this.setWishlist = setWishlist
-      this.wishlist = wishlist
+export const WishlistContextProvider = ({ children } ) => {
+    const [wishlist, setWishlist] = useState([])
+    const toggleProduct = (product) => {
+        const updatedProducts = wishlist.find((item) => item.key === product) ? removeProduct(wishlist, product) : [...wishlist, { key: product }]
+        setWishlist(updatedProducts)
     }
-
-    toggleProduct(product) {
-        const updatedProducts = this.wishlist.find((item) => item.key === product) ? removeProduct(this.wishlist, product) : [...this.wishlist, { key: product }]
-        this.setWishlist(updatedProducts)
-    }
-    
-    getProductIndex(product) {
-        if (this.wishlist.some(e => e.key === product)) {
+    const getProductIndex=(product) => {
+        if (wishlist.some(e => e.key === product)) {
             const inWishlist = true
             return inWishlist
         }
         return false  
     }
-}
-
-export const WishlistContext = React.createContext(null)
-
-export const WishlistContextProvider = ({ children } ) => {
-    const api = new WishlistAPI()
-    return <WishlistContext.Provider value={api}>{children}</WishlistContext.Provider>
+    return <WishlistContext.Provider value={{wishlist, setWishlist, toggleProduct, getProductIndex}}>{children}</WishlistContext.Provider>
   }
