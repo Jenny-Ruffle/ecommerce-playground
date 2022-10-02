@@ -9,7 +9,7 @@ const Home = () => (
       <HeadingLarge>Home</HeadingLarge>
     </CenterContainer>
     <CenterContainer>
-      <ParagraphLarge>Here is an example Product listing/details page</ParagraphLarge>
+      <ParagraphLarge>Have a look at the example PDP and PLP via the Navigation</ParagraphLarge>
     </CenterContainer>
   </Template>
 )

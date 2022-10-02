@@ -9,12 +9,12 @@ export const WishlistContextProvider = ({ children } ) => {
         const updatedProducts = wishlist.find((item) => item.key === product) ? removeProduct(wishlist, product) : [...wishlist, { key: product }]
         setWishlist(updatedProducts)
     }
-    const getProductIndex=(product) => {
+    const onWishlist = (product) => {
         if (wishlist.some(e => e.key === product)) {
             const inWishlist = true
             return inWishlist
         }
         return false  
     }
-    return <WishlistContext.Provider value={{wishlist, setWishlist, toggleProduct, getProductIndex}}>{children}</WishlistContext.Provider>
+    return <WishlistContext.Provider value={{wishlist, setWishlist, toggleProduct, onWishlist}}>{children}</WishlistContext.Provider>
   }

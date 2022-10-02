@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useContext} from 'react'
+import Image from 'next/future/image'
 import { createComponent } from 'react-fela'
 import { WishlistContext } from '../../state/wishlist'
-import Image from '../../components/Image'
 import {HeadingSmall, ParagraphLarge, Prefix} from '../../components/Fonts'
 import { Heart, OutlinedHeart } from '../../svg/wishlistSvgs'
 
@@ -25,39 +25,42 @@ const svgContainer = () => ({
 
 const SvgContainer = createComponent(svgContainer, 'div')
 
-const imageContainer = () => ({
+const hoverImageContainer = () => ({
     position: 'absolute',
     height: '300px',
     width: '200px',
     top: 0,
     left: 0,
+    zIndex: 10,
     transition: 'opacity 0.2s linear',
     ':hover': {
         opacity: 0
     }
 })
 
-const ImageContainer = createComponent(imageContainer, 'div')
+const HoverImageContainer = createComponent(hoverImageContainer, 'div')
 
+const mainImage = () => ({
+    height: '300px',
+    width: '200px',
+    paddingBottom: '16px',
+})
+
+const MainImage = createComponent(mainImage, 'div')
 
 const ProductCard = ({data}) => {
-    const WishlistAPI = useContext(WishlistContext)
-    const [onWishlist, setOnWishlist] = useState(WishlistAPI.getProductIndex(data.id))
-
-    useEffect(()=>{
-        setOnWishlist(WishlistAPI.getProductIndex(data.id))
-    }, [ WishlistAPI])
-
+    const {onWishlist, toggleProduct} = useContext(WishlistContext)
+    
     return <CardContainer>
         <a style={{textDecoration: 'none'}}href='/product-details'>
-        <ImageContainer><Image src={data.images[0].src}/></ImageContainer>
-        <Image src={data.images[2].src}/>
+        <HoverImageContainer><Image src={data.images[0].src} width="200px" height="300px" style={{objectFit: 'cover'}}/></HoverImageContainer>
+        <MainImage><Image src={data.images[2].src} width="200px" height="300px" style={{objectFit: 'cover'}}/></MainImage>
         <Prefix>{data.brand}</Prefix>
         <HeadingSmall hover={true} >{data.name}</HeadingSmall>
         <ParagraphLarge >{data.price}</ParagraphLarge>
         </a>
         <SvgContainer>
-            {onWishlist ? <Heart onClick={()=>WishlistAPI.toggleProduct(data.id)} /> : <OutlinedHeart onClick={()=>WishlistAPI.toggleProduct(data.id)}/>}
+            {onWishlist(data.id) ? <Heart onClick={()=>toggleProduct(data.id)} /> : <OutlinedHeart onClick={()=>toggleProduct(data.id)}/>}
         </SvgContainer>
     </CardContainer>
 }

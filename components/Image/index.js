@@ -7,5 +7,5 @@ const image = ({zIndex}) => ({
 })
 
 const Image = createComponent(image, 'img', ['src'])
-  
+
 export default Image
